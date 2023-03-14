@@ -72,7 +72,7 @@ BuildDockerImages () {
 #	cp $DIR/bin/$CORDA_HEALTH_CHECK_VERSION.jar $DIR/$CORDA_IMAGE_PATH/corda-tools-health-survey.jar
 	cd $DIR/$CORDA_IMAGE_PATH
 	$DOCKER_CMD build -t $CORDA_IMAGE_PATH:$CORDA_DOCKER_IMAGE_VERSION . -f Dockerfile $NO_CACHE
-	rm corda.jar
+#	rm corda.jar
 #	rm corda-tools-health-survey.jar
 	cd ..
 
