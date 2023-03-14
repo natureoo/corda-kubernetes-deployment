@@ -95,8 +95,8 @@ VERSION=""
 VERSION=$(grep 'cordaVersion:' $DIR/../helm/values.yaml | cut -d '"' -f 2 | tr '[:upper:]' '[:lower:]')
 HEALTH_CHECK_VERSION=$VERSION
 
-CORDA_VERSION="corda-ent-$VERSION"
-CORDA_IMAGE_PATH="corda_image_ent"
+CORDA_VERSION="corda-$VERSION"
+CORDA_IMAGE_PATH="corda_image"
 CORDA_DOCKER_IMAGE_VERSION="v1.00"
 
 CORDA_FIREWALL_VERSION="corda-firewall-$VERSION"

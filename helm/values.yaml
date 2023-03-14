@@ -7,7 +7,7 @@ setup:
   # If you would like to test an unreleased version you can target the SNAPSHOT of the version, for example: "4.5-SNAPSHOT"
   # Note that this parameter is case-sensitive
   # This version also affects the Corda Firewall version
-  cordaVersion: "4.0"
+  cordaVersion: "4.9.6"
   # initialRegistration defines if we should perform the initial registration tasks or not
   initialRegistration:
     # enabled is a boolean value for the above parameter
@@ -15,7 +15,7 @@ setup:
   # cordaFirewall defines if we should activate the Corda Firewall component as part of the installation or not
   cordaFirewall:
     # enabled is a boolean value for the above parameter
-    enabled: true
+    enabled: false
     # destination defines where the Float will be deployed
     destination: 
       # internalKubernetesCluster defines if the Float should be installed in the same cluster as Node & Bridge (not best security practice, but good for testing)
@@ -41,7 +41,7 @@ setup:
   # cloudProvider defines what provider the deployment should be targeting, a lot of options are provider specific. Use 'local' for doing local deployments.
   # Accepted options: 'azure', 'aws', 'gcp'
   # Please also configure the storage options to match your intended cloud provider solution (for example if using gcp as cloud provider, disable azureFile and enable gcpPD storage)
-  cloudProvider: "azure"
+  cloudProvider: "gcp"
 
 # config defines the options that relate to the deployment but not specifically to the Corda Node
 config:
@@ -186,7 +186,7 @@ corda:
       # identityManagerAddress defines the accesspoint for the Identity Manager server (protocol + domain name + port, eg. http://my-identity-manager:1000)
       identityManagerAddress: ""
       # networkmapAddress defines the accesspoint for the Network Map server (protocol + domain name + port, eg. http://my-network-map:2000)
-      networkmapAddress: ""
+      networkmapAddress: "http://34.76.103.90:8080"
       # compatibilityZoneEnabled defines if you are connecting to a compatibility zone rather than using the above identityManagerAddress+networkmapAddress. Set this to true to be able to join Corda Testnet along with compatibilityZoneURL
       compatibilityZoneEnabled: false
       # compatibilityZoneURL defines the root address of Corda compatibility zone network management services. For Corda Testnet you can use "https://netmap.testnet.r3.com"
@@ -205,7 +205,7 @@ corda:
       # tlsCertCrlIssuer defines the X500 name of the trusted CRL issuer of the Corda Network, example from the Corda Network UAT network
       tlsCertCrlIssuer: "CN=Corda TLS CRL Authority,OU=Corda UAT,O=R3 HoldCo LLC,L=New York,C=US"
       # devMode defines if Corda Node is running in developer mode or not, this setting should NEVER be enabled in a production setting!
-      devMode: false
+      devMode: true
       # ssh defines the SSH access options
       ssh:
         # enabled is a boolean value for the above parameter
@@ -215,7 +215,7 @@ corda:
       # rpc defines the RPC options
       rpc:
         # port is the RPC endpoint that the user interface will access to direct the CorDapp on the Corda Node
-        port: 30000
+        port: 50000
         # adminPort is the RPC admin endpoint that can be used to do administrative tasks on the Corda Node, normally disabled
         adminPort: 30009
         # users defines the list of RPC users and the permissions they have. See https://docs.corda.net/clientrpc.html#granting-flow-permissions for more information

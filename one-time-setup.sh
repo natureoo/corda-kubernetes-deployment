@@ -63,8 +63,8 @@ OneTimeSetup () {
 	checkStatus $?
 	$DIR/docker-images/push_docker_images.sh
 	checkStatus $?
-	$DIR/corda-pki-generator/generate_firewall_pki.sh
-	checkStatus $?
+#	$DIR/corda-pki-generator/generate_firewall_pki.sh
+#	checkStatus $?
 
 	INITIAL_REGISTRATION=""
 	INITIAL_REGISTRATION=$(grep -A 3 'initialRegistration:' $DIR/helm/values.yaml | grep 'enabled: ' | cut -d ':' -f 2 | xargs)
