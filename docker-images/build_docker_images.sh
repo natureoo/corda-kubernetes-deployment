@@ -51,7 +51,7 @@ then
 fi 
 
 . $DIR/docker_config.sh
-. $DIR/download_binaries.sh
+#. $DIR/download_binaries.sh
 
 BuildDockerImages () {
 	echo "====== Building Docker images next ... ====== "
