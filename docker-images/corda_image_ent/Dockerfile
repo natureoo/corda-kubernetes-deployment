@@ -9,7 +9,7 @@ RUN apk upgrade --update && \
     # Create /opt/corda directory && \
 	mkdir -p /opt/corda/workspace
 
-ADD --chown=corda:corda corda.jar /opt/corda/corda.jar
+ADD --chown=corda:corda corda-4.9.6.jar /opt/corda/corda.jar
 #ADD --chown=corda:corda corda-tools-health-survey.jar /opt/corda/corda-tools-health-survey.jar
 ADD --chown=corda:corda startCorda.sh /opt/corda/startCorda.sh
 #ADD --chown=corda:corda checkHealth.sh /opt/corda/checkHealth.sh
