@@ -54,8 +54,12 @@ PushDockerImages () {
 		exit 1
 	fi
 
+
+
 	echo "Logging in to Docker registry..."
-	$DOCKER_CMD login $DOCKER_REGISTRY --username $DOCKER_USER --password $DOCKER_PASSWORD
+#	$DOCKER_CMD login $DOCKER_REGISTRY --username $DOCKER_USER --password $DOCKER_PASSWORD
+  gcloud auth configure-docker europe-west2-docker.pkg.dev
+
 
 	echo "Tagging Docker images..."
 	$DOCKER_CMD tag ${CORDA_IMAGE_PATH}:$CORDA_DOCKER_IMAGE_VERSION $DOCKER_REGISTRY/${CORDA_IMAGE_PATH}_$VERSION:$CORDA_DOCKER_IMAGE_VERSION

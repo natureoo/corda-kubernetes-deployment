@@ -85,7 +85,7 @@ EnsureDockerIsAvailableAndReachable () {
 }
 EnsureDockerIsAvailableAndReachable
 
-DOCKER_REGISTRY=""
+DOCKER_REGISTRY="europe-west2-docker.pkg.dev/canvas-hook-339503/corda"
 DOCKER_CONF_RAW=$(grep -A 8 'containerRegistry:' $DIR/../helm/values.yaml) # Find configuration path .Values.config.containerRegistry:
 DOCKER_REGISTRY=$(echo "$DOCKER_CONF_RAW" | grep 'serverAddress: "' | cut -d '"' -f 2)
 DOCKER_USER=$(echo "$DOCKER_CONF_RAW" | grep 'username: "' | cut -d '"' -f 2)
