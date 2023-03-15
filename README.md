@@ -71,12 +71,14 @@ For more details on how it should be filled out, follow the [CHECKLIST.md](docs/
 This is a brief view of the steps you will take, for the full set of steps, please review [CHECKLIST.md](docs/CHECKLIST.md).
 
 1. Customize the Helm ``values.yaml`` file according to your deployment (this step is used by initial-registration and Helm compile, very important to fill in correctly and completely)
-2. Execute ``one-time-setup.sh`` which will do the following (you can also step through the steps on your own, just follow what the one-time-setup.sh would have done):
-	1. Build the docker images and push them to the Container Registry
-	2. Generate the Corda Firewall PKI certificates
-	3. Execute initial registration step (which should copy certificates to the correct locations under ``helm/files``)
-3. Build Helm templates and install them onto the Kubernetes Cluster (by way of executing either ``deploy.sh`` or ``helm/helm_compile.sh``)
-4. Ensure that the deployment has been successful (log in to the pods and check that they are working correctly, please see below link for information on how to do that)
+2. Download networkRootTrustStore.jks
+    1. curl http://34.76.103.90:8080/network-map/truststore -o /home/feil_zou/corda4/corda-kubernetes-deployment/helm/files/network/networkRootTrustStore.jks
+3. Execute ``one-time-setup.sh`` which will do the following (you can also step through the steps on your own, just follow what the one-time-setup.sh would have done):
+    1. Build the docker images and push them to the Container Registry
+    2. Generate the Corda Firewall PKI certificates
+    3. Execute initial registration step (which should copy certificates to the correct locations under ``helm/files``)
+4. Build Helm templates and install them onto the Kubernetes Cluster (by way of executing either ``deploy.sh`` or ``helm/helm_compile.sh``)
+5. Ensure that the deployment has been successful (log in to the pods and check that they are working correctly, please see below link for information on how to do that)
 
 ---
 
