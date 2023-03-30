@@ -35,10 +35,6 @@ spec:
   gcePersistentDisk:
     pdName: "{{ .Values.config.storage.node.volumeId }}"
     fsType: "{{ .Values.config.storage.gcpPD.fsType }}"
-{{- else if .Values.config.storage.awsEBS.enabled }}
-  awsElasticBlockStore:
-    volumeID: "{{ .Values.config.storage.node.volumeId }}"
-    fsType: "{{ .Values.config.storage.awsEBS.fsType }}"
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -46,5 +42,17 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - {{ .Values.config.storage.node.volumeHost }}
+            - { { .Values.config.storage.node.volumeHost } }
+{{- else if .Values.config.storage.awsEBS.enabled }}
+  awsElasticBlockStore:
+    volumeID: "{{ .Values.config.storage.node.volumeId }}"
+    fsType: "{{ .Values.config.storage.awsEBS.fsType }}"
+#  nodeAffinity:
+#    required:
+#      nodeSelectorTerms:
+#      - matchExpressions:
+#        - key: kubernetes.io/hostname
+#          operator: In
+#          values:
+#          - {{ .Values.config.storage.node.volumeHost }}
 {{- end }}
