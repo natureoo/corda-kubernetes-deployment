@@ -42,7 +42,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-            - "{ { .Values.config.storage.node.volumeHost } }"
+            - {{ .Values.config.storage.node.volumeHost } }
 {{- else if .Values.config.storage.awsEBS.enabled }}
   awsElasticBlockStore:
     volumeID: "{{ .Values.config.storage.node.volumeId }}"
