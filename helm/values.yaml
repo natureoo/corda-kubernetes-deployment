@@ -184,9 +184,9 @@ corda:
       # floatInternalAddress defines the Floats private IP address, that the Bridge will use to set up the Corda Firewall tunnel between the Bridge and the Float
       floatInternalAddress: "" # Address that the Bridge service will connect to, if empty uses the public p2p address (above)
       # identityManagerAddress defines the accesspoint for the Identity Manager server (protocol + domain name + port, eg. http://my-identity-manager:1000)
-      identityManagerAddress: "http://34.76.103.90:8080"
+      identityManagerAddress: "http://34.76.103.90:8081"
       # networkmapAddress defines the accesspoint for the Network Map server (protocol + domain name + port, eg. http://my-network-map:2000)
-      networkmapAddress: "http://34.76.103.90:8080"
+      networkmapAddress: "http://34.76.103.90:8081"
       # compatibilityZoneEnabled defines if you are connecting to a compatibility zone rather than using the above identityManagerAddress+networkmapAddress. Set this to true to be able to join Corda Testnet along with compatibilityZoneURL
       compatibilityZoneEnabled: false
       # compatibilityZoneURL defines the root address of Corda compatibility zone network management services. For Corda Testnet you can use "https://netmap.testnet.r3.com"

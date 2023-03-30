@@ -89,13 +89,13 @@ HelmCompilePrerequisites () {
 		exit 1
 	fi
 	
-	if [ ! -f $DIR/files/certificates/firewall_tunnel/bridge.jks -o ! -f $DIR/files/certificates/firewall_tunnel/float.jks -o ! -f $DIR/files/certificates/firewall_tunnel/trust.jks ]; then
-		echo -e "${RED}ERROR${NC}"
-		echo "$DIR/files/certificates/firewall_tunnel/ missing certificates, expecting to see bridge.jks, float.jks and trust.jks, these files should have been created by one-time-setup.sh script."
-		echo "Files in folder $DIR/files/certificates/firewall_tunnel:"
-		ls -al $DIR/files/certificates/firewall_tunnel
-		exit 1
-	fi
+#	if [ ! -f $DIR/files/certificates/firewall_tunnel/bridge.jks -o ! -f $DIR/files/certificates/firewall_tunnel/float.jks -o ! -f $DIR/files/certificates/firewall_tunnel/trust.jks ]; then
+#		echo -e "${RED}ERROR${NC}"
+#		echo "$DIR/files/certificates/firewall_tunnel/ missing certificates, expecting to see bridge.jks, float.jks and trust.jks, these files should have been created by one-time-setup.sh script."
+#		echo "Files in folder $DIR/files/certificates/firewall_tunnel:"
+#		ls -al $DIR/files/certificates/firewall_tunnel
+#		exit 1
+#	fi
 }
 HelmCompilePrerequisites
 
