@@ -141,7 +141,7 @@ config:
       # volumeId defines the id of the volume. This is currently only used if either AWS EBS or GCP PD is enabled
       volumeId: "corda-pd-disk-1"
       # volumeHost defines which EC2 instance the volume is connected to (the value can be found in AWS portal -> EC2 Instances -> Private DNS of the VM). This is currently only used if AWS EBS is enabled
-      volumeHost: "europe-west1-b"
+      volumeHost: "europe-west2-c"
     # bridge defines the storage options for the Bridge information
     bridge:
       # fileShareName defines the volume share name, with which Kubernetes will be able to map the volume to the Deployment
