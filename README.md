@@ -76,6 +76,8 @@ kubectl delete all -l app=helm -n kube-system
 0. Install helm and tiller 
    1. Install helm 2.x
    2. helm init --stable-repo-url=https://charts.helm.sh/stable --tiller-image ghcr.io/helm/tiller:v2.17.0
+   3. kubectl create namespace cordatest
+
 
 2. Customize the Helm ``values.yaml`` file according to your deployment (this step is used by initial-registration and Helm compile, very important to fill in correctly and completely)
 3. Download networkRootTrustStore.jks
