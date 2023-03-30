@@ -57,12 +57,13 @@ config:
   # containerRegistry defines the Container Registry options
   containerRegistry: 
     # serverAddress is the name of the server that corresponds with the Container Registry
-    serverAddress: "europe-west2-docker.pkg.dev/canvas-hook-339503/corda"
+#    serverAddress: "europe-west2-docker.pkg.dev/canvas-hook-339503/corda"
+    serverAddress: "127.0.0.1"
     # username is the username for the Container Registry access.
     # Please note that if using Amazon ECR you must use the special username "AWS"
-    username: ""
+    username: "corda"
     # password is the password for the Container Registry access
-    password: ""
+    password: "123456"
     # email is the email address corresponding to the Container Registry
     email: ""
   # artifactoryR3 defines the options for accessing R3 Artifactory https://software.r3.com/ to download binaries (Corda Enterprise, Corda Firewall, Corda Health Survey Tool, etc.)
