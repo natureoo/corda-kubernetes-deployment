@@ -139,7 +139,7 @@ config:
       # size specifies the size to reserve for this volume
       size: "2Gi"
       # volumeId defines the id of the volume. This is currently only used if either AWS EBS or GCP PD is enabled
-      volumeId: "corda-pd-disk-1"
+      volumeId: "instance-corda4"
       # volumeHost defines which EC2 instance the volume is connected to (the value can be found in AWS portal -> EC2 Instances -> Private DNS of the VM). This is currently only used if AWS EBS is enabled
       volumeHost: "europe-west1-b"
     # bridge defines the storage options for the Bridge information
