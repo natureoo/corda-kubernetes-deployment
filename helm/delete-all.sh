@@ -14,6 +14,9 @@ DeleteAllKubernetesResources () {
 	kubectl delete --all pvc --wait=false
 	kubectl delete --all pv --wait=false
 	kubectl delete all --all -n cordatest
+  kubectl delete --all pvc -n cordatest --wait=false
+
+
 
 	while :; do
 		n=$(kubectl get pods | wc -l)
