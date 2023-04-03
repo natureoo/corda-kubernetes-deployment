@@ -75,7 +75,7 @@ kubectl delete all -l app=helm -n kube-system
 
 0. Install helm and tiller 
    1. Install helm 2.x
-   2. helm init --stable-repo-url=https://charts.helm.sh/stable --tiller-image ghcr.io/helm/tiller:v2.17.0
+   2. helm init --stable-repo-url=https://charts.helm.sh/stable --tiller-image ghcr.io/helm/tiller:v2.16.3 --service-account tiller
    3. kubectl create namespace cordatest
 
 
