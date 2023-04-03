@@ -57,8 +57,8 @@ config:
   # containerRegistry defines the Container Registry options
   containerRegistry: 
     # serverAddress is the name of the server that corresponds with the Container Registry
-#    serverAddress: "europe-west2-docker.pkg.dev/canvas-hook-339503/corda"
-    serverAddress: "127.0.0.1"
+    serverAddress: "europe-west2-docker.pkg.dev/canvas-hook-339503/corda"
+#    serverAddress: "127.0.0.1"
     # username is the username for the Container Registry access.
     # Please note that if using Amazon ECR you must use the special username "AWS"
     username: "corda"
