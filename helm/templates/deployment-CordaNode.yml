@@ -83,7 +83,8 @@ spec:
       - name: container-registry-secret
       containers:
       - name: {{ .Values.config.resourceName }}
-        image: {{ .Values.config.containerRegistry.serverAddress }}/{{ printf .Values.config.dockerImageNode (.Values.setup.cordaVersion | lower) }}
+{{/*        image: {{ .Values.config.containerRegistry.serverAddress }}/{{ printf .Values.config.dockerImageNode (.Values.setup.cordaVersion | lower) }}*/}}
+        image: {{ .Values.config.containerRegistry.serverAddress }}/{{ printf .Values.config.dockerImageNode }}
         imagePullPolicy: Always
         resources:
           requests:
