@@ -72,7 +72,7 @@ PushDockerImages () {
 	echo "$CORDA_DOCKER_REPOSITORY"
 #	CORDA_FIREWALL_DOCKER_REPOSITORY=$(echo $DOCKER_REGISTRY/${CORDA_FIREWALL_IMAGE_PATH}_$VERSION:$FIREWALL_DOCKER_IMAGE_VERSION 2>&1 | tr '[:upper:]' '[:lower:]')
 	echo "Push for Corda Enterprise Docker image:"
-	docker push corda_image_ent:v1.00 europe-west2-docker.pkg.dev/canvas-hook-339503/corda/corda_image_ent:v1.00
+	docker push europe-west2-docker.pkg.dev/canvas-hook-339503/corda/corda_image_ent:v1.00
 #	$DOCKER_CMD push $CORDA_DOCKER_REPOSITORY
 #	echo "Push for Corda Firewall Docker image:"
 #	$DOCKER_CMD push $CORDA_FIREWALL_DOCKER_REPOSITORY
