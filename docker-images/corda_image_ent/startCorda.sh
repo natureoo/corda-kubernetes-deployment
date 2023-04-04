@@ -135,6 +135,7 @@ checkNetworkMap () {
 }
 
 startNode () {
+  java -jar corda.jar run-migration-scripts --base-directory ./workspace --core-schemas --app-schemas --allow-hibernate-to-manage-app-schema
 	java -jar corda.jar --base-directory ./workspace
 	checkStatus $?
 }
