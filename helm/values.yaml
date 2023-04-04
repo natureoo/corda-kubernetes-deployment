@@ -51,7 +51,8 @@ config:
   # Does not need editing unless deploying multiple nodes in the same cluster which should use unique resource names
   resourceName: "corda-node-1"
   # dockerImageNode defines the Docker Image we will be deploying for the Corda Node
-  dockerImageNode: "corda_image_ent_%s:v1.00"
+#  dockerImageNode: "corda_image_ent_%s:v1.00"
+  dockerImageNode: "corda_image_ent:v1.00"
   # dockerImageFirewall defines the Docker Image we will be deploying for the Corda Firewall
   dockerImageFirewall: "corda_image_firewall_%s:v1.00"
   # containerRegistry defines the Container Registry options
