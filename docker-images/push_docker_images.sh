@@ -63,9 +63,9 @@ PushDockerImages () {
 
 	echo "Tagging Docker images..."
 	echo "$DOCKER_CMD image tag ${CORDA_IMAGE_PATH}:$CORDA_DOCKER_IMAGE_VERSION $DOCKER_REGISTRY/${CORDA_IMAGE_PATH}:$CORDA_DOCKER_IMAGE_VERSION"
-	$DOCKER_CMD image tag ${CORDA_IMAGE_PATH}:$CORDA_DOCKER_IMAGE_VERSION $DOCKER_REGISTRY/${CORDA_IMAGE_PATH}:$CORDA_DOCKER_IMAGE_VERSION
+#	$DOCKER_CMD image tag ${CORDA_IMAGE_PATH}:$CORDA_DOCKER_IMAGE_VERSION $DOCKER_REGISTRY/${CORDA_IMAGE_PATH}:$CORDA_DOCKER_IMAGE_VERSION
 #	$DOCKER_CMD tag ${CORDA_FIREWALL_IMAGE_PATH}:$FIREWALL_DOCKER_IMAGE_VERSION $DOCKER_REGISTRY/${CORDA_FIREWALL_IMAGE_PATH}_$VERSION:$FIREWALL_DOCKER_IMAGE_VERSION
-#  docker image tag corda_image_ent:v1.00 europe-west2-docker.pkg.dev/canvas-hook-339503/corda/corda_image_ent:v1.00
+  docker image tag corda_image_ent:v1.00 europe-west2-docker.pkg.dev/canvas-hook-339503/corda/corda_image_ent:v1.00
 
 	echo "Pushing Docker images to Docker repository..."
 	CORDA_DOCKER_REPOSITORY=$(echo  $DOCKER_REGISTRY/${CORDA_IMAGE_PATH}:$CORDA_DOCKER_IMAGE_VERSION 2>&1 | tr '[:upper:]' '[:lower:]')
