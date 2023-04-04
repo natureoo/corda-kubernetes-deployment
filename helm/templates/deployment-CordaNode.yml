@@ -101,6 +101,10 @@ spec:
         volumeMounts:
         - mountPath: "/opt/corda/workspace"
           name: {{ .Values.config.resourceName }}-pv
+        - mountPath: /opt/corda/workspace/network-parameters
+          name: node-config-volume
+          subPath: network-parameters.file
+          readOnly: true
         - mountPath: /opt/corda/workspace/ping.sh
           name: node-config-volume
           subPath: ping.sh
