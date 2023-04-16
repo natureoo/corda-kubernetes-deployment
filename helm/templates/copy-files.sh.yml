@@ -110,6 +110,7 @@ CopyCorDapps () {
 CopyFilesToPersistentStorage () {
     set -eu
     APP={{ .Values.config.resourceName }}-node
+    echo "Copy files to $APP with APP: APP"
     POD=$(kubectl get pod -l app=$APP -o jsonpath="{.items[0].metadata.name}")
 
     echo "Copy files to $APP with POD: $POD"
