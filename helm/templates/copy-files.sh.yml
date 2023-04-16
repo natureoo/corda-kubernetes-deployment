@@ -49,7 +49,7 @@ CopyDatabaseDrivers () {
     
     CUR_PATH=$(pwd)
     cd $DB_DRIVERS_PATH
-    
+    NAMESPACE={{.Values.config.namespace}}
     set +e
     ALL_DRIVER_JARS=(*.jar)
     NUM_DRIVERS=${#ALL_DRIVER_JARS[@]}
@@ -57,10 +57,10 @@ CopyDatabaseDrivers () {
     echo ""
 
     echo "Ensuring persistent storage has the drivers folder..."
-    kubectl exec $POD -- mkdir -p workspace/drivers/
+    kubectl exec $POD -- mkdir -p workspace/drivers/  -n $NAMESPACE
     echo ""
     
-    DRIVERS_IN_PERSISTENT_STORAGE=$(kubectl exec $POD -- ls -al workspace/drivers/)
+    DRIVERS_IN_PERSISTENT_STORAGE=$(kubectl exec $POD -- ls -al workspace/drivers/  -n $NAMESPACE)
     
     for f in "${ALL_DRIVER_JARS[@]}"
     do
@@ -71,7 +71,7 @@ CopyDatabaseDrivers () {
             echo $(echo "$DRIVERS_IN_PERSISTENT_STORAGE" | grep $(basename $f))
         else
             echo "Copying driver to persistent storage..."
-            kubectl cp "$f" "$POD:/opt/corda/workspace/drivers/"
+            kubectl cp "$f" "$POD:/opt/corda/workspace/drivers/"  -n $NAMESPACE
         fi
         echo ""
     done
@@ -87,13 +87,13 @@ CopyDatabaseDrivers () {
 CopyCorDapps () {
     APP=$1
     CORDAPPS_PATH=$2
-    
+    NAMESPACE={{.Values.config.namespace}}
     # Can run into issues if CorDapps locked by Corda process. TODO: refactor into a new manner of deploying CorDapps.
     echo "Copying $CORDAPPS_PATH to $POD:/opt/corda/workspace/"
     echo "Contents of cordapps folder:"
     ls $CORDAPPS_PATH
     set +e
-    kubectl cp "$CORDAPPS_PATH" "$POD:/opt/corda/workspace/"
+    kubectl cp "$CORDAPPS_PATH" "$POD:/opt/corda/workspace/"  -n $NAMESPACE
     result=$?
     set -e
     if [ $result -eq 0 ]; then
