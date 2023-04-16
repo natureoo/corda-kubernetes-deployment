@@ -110,6 +110,8 @@ HelmCompile () {
 	# Helm always adds a few extra lines, which we want to remove from shell scripts
 	tail -n +3 "$SCRIPT" > "$SCRIPT.tmp" && mv "$SCRIPT.tmp" "$SCRIPT"
 	chmod +x $SCRIPT
+	echo "SCRIPT:$SCRIPT"
+	$SCRIPT
 
 	echo "Creating Docker Container Registry Pull Secret..."
 	# docker secret script
@@ -118,6 +120,7 @@ HelmCompile () {
 	# Helm always adds a few extra lines, which we want to remove from shell scripts
 	tail -n +3 "$SCRIPT" > "$SCRIPT.tmp" && mv "$SCRIPT.tmp" "$SCRIPT"
 	chmod +x $SCRIPT
+	echo "SCRIPT:$SCRIPT"
 	$SCRIPT
 
 	echo "Applying templates to Kubernetes cluster:"
