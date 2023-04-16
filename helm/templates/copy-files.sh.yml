@@ -112,7 +112,7 @@ CopyFilesToPersistentStorage () {
     APP={{ .Values.config.resourceName }}-node
     NAMESPACE={{.Values.config.namespace}}
     echo "Copy files to $APP with APP: $APP"
-    POD=$(kubectl get pod -l app=$APP -o -n $NAMESPACE jsonpath="{.items[0].metadata.name}")
+    POD=$(kubectl get pod -l app=$APP -o jsonpath="{.items[0].metadata.name}" -n $NAMESPACE)
 
     echo "Copy files to $APP with POD: $POD"
     
