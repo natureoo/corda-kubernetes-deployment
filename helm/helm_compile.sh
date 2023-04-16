@@ -105,13 +105,12 @@ HelmCompile () {
 	helm template $DIR --name $TEMPLATE_NAMESPACE --namespace $TEMPLATE_NAMESPACE --output-dir $DIR/output
 
 	# copy-files script
-	SCRIPT="$DIR/output/corda/templates/copy-files.sh"
-	mv $SCRIPT.yml $SCRIPT
+	COPYSCRIPT="$DIR/output/corda/templates/copy-files.sh"
+	mv $COPYSCRIPT.yml $COPYSCRIPT
 	# Helm always adds a few extra lines, which we want to remove from shell scripts
-	tail -n +3 "$SCRIPT" > "$SCRIPT.tmp" && mv "$SCRIPT.tmp" "$SCRIPT"
-	chmod +x $SCRIPT
-	echo "SCRIPT:$SCRIPT"
-	$SCRIPT
+	tail -n +3 "$COPYSCRIPT" > "$COPYSCRIPT.tmp" && mv "$COPYSCRIPT.tmp" "$COPYSCRIPT"
+	chmod +x $COPYSCRIPT
+	echo "COPYSCRIPT:$COPYSCRIPT"
 
 	echo "Creating Docker Container Registry Pull Secret..."
 	# docker secret script
@@ -128,6 +127,7 @@ HelmCompile () {
 
 	# Copy CorDapps, Database drivers etc.
 	#$DIR/output/corda/templates/copy-files.sh
+	$COPYSCRIPT
 	echo "====== Deploying to Kubernetes cluster completed. ====== "
 }
 HelmCompile
