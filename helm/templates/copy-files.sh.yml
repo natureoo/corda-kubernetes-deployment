@@ -58,11 +58,11 @@ CopyDatabaseDrivers () {
 
     echo "Ensuring persistent storage has the drivers folder..."
 
-    echo "kubectl exec $POD  -n $NAMESPACE -- mkdir -p ~/workspace/drivers/ "
-    kubectl exec $POD  -n $NAMESPACE -- mkdir -p ~/workspace/drivers/
+    echo "kubectl exec $POD  -n $NAMESPACE -- mkdir -p /opt/corda/workspace/drivers/ "
+    kubectl exec $POD  -n $NAMESPACE -- mkdir -p /opt/corda/workspace/drivers/
     echo ""
     
-    DRIVERS_IN_PERSISTENT_STORAGE=$(kubectl exec $POD  -n $NAMESPACE -- ls -al workspace/drivers/ )
+    DRIVERS_IN_PERSISTENT_STORAGE=$(kubectl exec $POD  -n $NAMESPACE -- ls -al /opt/corda/workspace/drivers/ )
     
     for f in "${ALL_DRIVER_JARS[@]}"
     do
@@ -117,7 +117,7 @@ CopyFilesToPersistentStorage () {
     POD=$(kubectl get pod -l app=$APP -o jsonpath="{.items[0].metadata.name}" -n $NAMESPACE)
 
     echo "Copy files to $APP with POD: $POD"
-    
+    sleep 20
     CopyDatabaseDrivers $POD $(echo "$DIR/../../../../docker-images/bin/db_drivers")
 
     CopyCorDapps $POD $(echo "$DIR/../../../files/cordapps")
