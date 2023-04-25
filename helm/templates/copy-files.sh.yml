@@ -58,8 +58,8 @@ CopyDatabaseDrivers () {
 
     echo "Ensuring persistent storage has the drivers folder..."
 
-    echo "kubectl exec $POD  -n $NAMESPACE -- mkdir -p workspace/drivers/ "
-    kubectl exec $POD  -n $NAMESPACE -- mkdir -p workspace/drivers/
+    echo "kubectl exec $POD  -n $NAMESPACE -- mkdir -p ~/workspace/drivers/ "
+    kubectl exec $POD  -n $NAMESPACE -- mkdir -p ~/workspace/drivers/
     echo ""
     
     DRIVERS_IN_PERSISTENT_STORAGE=$(kubectl exec $POD  -n $NAMESPACE -- ls -al workspace/drivers/ )
