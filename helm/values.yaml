@@ -231,13 +231,13 @@ corda:
       # dataSource defines the database options
       dataSource:
         # className defines which database to use, empty ("") defines H2
-        className: ""
+        className: "org.postgresql.ds.PGSimpleDataSource"
         # url defines where to reach the database at. empty ("") defines H2 local database access
-        url: ""
+        url: "jdbc:postgresql://23.251.132.201:5432/postgres"
         # user defines the username for the access to the database
-        user: "user1"
+        user: "postgres"
         # password defines the password for the access to the database
-        password: "test"
+        password: "123456"
       # monitoring defines the monitoring options
       monitoring:
         # enabled is a boolean value for the above parameter
